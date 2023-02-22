@@ -5,16 +5,27 @@ const nameInput = document.getElementById("un")
 
 nameInput.addEventListener("keyup", getName)
 
-nameWarning = document.getElementById("warning")
-
 function getName(e) {
-    let passwordCheck = e.target.value
-    if (passwordCheck.includes("@")) {
-        console.log("No!!!")
+    nameWarning = document.getElementById("warning")
+    const nameCheck = e.target.value
+    if (nameCheck.includes("@")) {
         return nameWarning.textContent = `gebruikersnaam kan geen @ bevatten!`
     } else {
         return nameWarning.textContent = ``
     }
 }
 
+const passwordInput = document.getElementById("pw")
+
+passwordInput.addEventListener("keyup", passwordCheck)
+
+function passwordCheck(e) {
+    const passwordWarning = document.getElementById("small-pw")
+    const lenghtCheck = e.target.value
+    if (lenghtCheck.length < 6) {
+        return passwordWarning.textContent = "Wachtwoord is te kort, gebruik minimaal 6 tekens"
+    } else {
+        return passwordWarning.textContent = ""
+    }
+}
 
